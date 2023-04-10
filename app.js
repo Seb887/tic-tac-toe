@@ -1,6 +1,6 @@
 'use strict';
 
-class Gameboard {
+class GameController {
   constructor(playerX, playerO) {
     this.playerSignX = playerX;
     this.playerSignO = playerO;
@@ -44,9 +44,9 @@ class Gameboard {
 
     gameboardContainer.appendChild(gameboard);
   }
-
+  playGame() {}
   checkWinner() {}
 }
 
-const newGameboard = new Gameboard();
-newGameboard.createHTML();
+const newGame = new GameController();
+newGame.createHTML();
