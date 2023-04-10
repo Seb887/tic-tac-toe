@@ -1,11 +1,8 @@
 'use strict';
 
-class GameController {
-  constructor(playerX, playerO) {
-    this.playerSignX = playerX;
-    this.playerSignO = playerO;
+class Gameboard {
+  constructor() {
     this.gameboardArr = ['', '', '', '', '', '', '', '', ''];
-    this.html = this.createHTML;
   }
   createHTML() {
     const gameboardContainer = document.querySelector('.gameboardContainer');
@@ -20,7 +17,7 @@ class GameController {
       'top-72',
       'w-96',
       'h-96',
-      'border',
+      'border-2',
       'border-sky-500'
     );
 
@@ -31,22 +28,39 @@ class GameController {
         'flex',
         'justify-center',
         'items-center',
+        'w-32',
+        'h-32',
         'text-5xl',
         'font-extrabold',
         'text-slate-400',
         'border',
         'border-sky-500'
       );
-      field.setAttribute('id', `field-${i + 1}`);
+      field.setAttribute('id', `field-${i}`);
 
       gameboard.appendChild(field);
+
+      let playerSign = document.createElement('i');
+      if (this.gameboardArr[i] === 'x') {
+        playerSign.classList.add('fa-solid', 'fa-x', 'text-7xl');
+        field.appendChild(playerSign);
+      } else if (this.gameboardArr[i] === 'o') {
+        playerSign.classList.add('fa-solid', 'fa-o', 'text-7xl');
+        field.appendChild(playerSign);
+      }
     }
 
     gameboardContainer.appendChild(gameboard);
   }
-  playGame() {}
-  checkWinner() {}
 }
 
-const newGame = new GameController();
-newGame.createHTML();
+const newGameboard = new Gameboard();
+newGameboard.createHTML();
+
+class GameController {
+  constructor() {}
+
+  playGame() {}
+
+  checkWinner() {}
+}
