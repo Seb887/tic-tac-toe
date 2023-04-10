@@ -2,8 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script
       src="https://kit.fontawesome.com/159db6d9fb.js"
@@ -20,74 +26,31 @@
       </h1>
     </header>
 
-    <main class="grid justify-center text-white relative top-24">
-      <section class="buttonContainer grid justify-center mt-14">
-        <h1 class="flex justify-center text-lg text-red-200">
-          Choose your marker
-        </h1>
-        <div class="playerSelection flex justify-center mt-10 space-x-24">
-          <button
-            class="playerX p-2 w-20 text-slate-200 bg-slate-800 border border-sky-500 rounded-lg"
+    <main class="grid justify-center h-screen text-white">
+      <!-- Gamboard -->
+      <section class="gameboardContainer"></section>
+
+      <footer
+        class="footer flex justify-center absolute bottom-0 left-0 w-full p-2 text-slate-300"
+      >
+        <p class="font-bold">
+          <span class="pr-2 font-normal">
+            Copyright ©
+            <script type="text/javascript">
+              const year = new Date();
+              document.write(year.getFullYear());
+            </script></span
           >
-            <i class="fa-solid fa-x"></i>
-          </button>
-          <button
-            class="playerOp-2 w-20 text-slate-200 bg-slate-800 border border-sky-500 rounded-lg"
-          >
-            <i class="fa-solid fa-o"></i>
-          </button>
-        </div>
-      </section>
-      <section class="matchfieldContainer">
-        <ul
-          class="matchfield grid justify-center grid-cols-3 mt-32 w-96 h-96 border-sky-500"
+          Seb887
+        </p>
+        <a
+          class="pl-1 hover:text-sky-500"
+          href="https://github.com/seb887"
+          target="_blank"
         >
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-r border-b border-sky-500"
-            id="field-1"
-          >
-            <i class="fa-solid fa-o"></i>
-          </li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-b border-sky-500"
-            id="field-2"
-          ></li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-l border-b border-sky-500"
-            id="field-3"
-          >
-            <i class="fa-solid fa-x"></i>
-          </li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-r border-sky-500"
-            id="field-4"
-          ></li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-sky-500"
-            id="field-5"
-          ></li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-l border-sky-500"
-            id="field-6"
-          >
-            <i class="fa-solid fa-x"></i>
-          </li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-r border-t border-sky-500"
-            id="field-7"
-          >
-            <i class="fa-solid fa-o"></i>
-          </li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-t border-sky-500"
-            id="field-8"
-          ></li>
-          <li
-            class="field flex justify-center items-center text-5xl font-extrabold text-slate-400 border-l border-t border-sky-500"
-            id="field-9"
-          ></li>
-        </ul>
-      </section>
+          <i class="fab fa-github"></i
+        ></a>
+      </footer>
     </main>
 
     <script src="app.js"></script>
