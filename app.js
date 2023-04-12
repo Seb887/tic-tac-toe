@@ -1,9 +1,17 @@
 'use strict';
-
-const gameboardContainer = document.querySelector('.gameboardContainer');
-const main = document.querySelector('main');
-
+// Default settings
+let currentPlayer = 'x';
 let gameboardArr = ['', '', '', '', '', '', '', '', ''];
+
+// DOM Elements
+const main = document.querySelector('main');
+const gameboardContainer = document.querySelector('.gameboardContainer');
+const gameboard = document.querySelector('.gameboard');
+const fields = document.querySelectorAll('.fields');
+const restartBtn = document.querySelector('#restart');
+
+// Events
+restartBtn.onclick = () => restart();
 
 // const createGameboard = () => {
 //   let gameboard = document.createElement('div');
@@ -68,45 +76,62 @@ let gameboardArr = ['', '', '', '', '', '', '', '', ''];
 
 // createGameboard();
 
-const clearBoard = () => {
-  while (gameboardContainer.firstChild) {
-    gameboardContainer.removeChild(gameboardContainer.firstChild);
-  }
-};
+// const clearBoard = () => {
+//   while (gameboardContainer.firstChild) {
+//     gameboardContainer.removeChild(gameboardContainer.firstChild);
+//   }
+// };
 
-const refresh = () => {
-  clearBoard();
-  createGameboard();
+const refresh = (index) => {
+  let getField = document.getElementById(index);
+
+  gameboardArr.forEach((e) => {
+    if (e === 'x') {
+      const playerX = document.createElement('i');
+      playerX.classList.add('fa-solid', 'fa-x', 'text-7xl');
+      getField.appendChild(playerX);
+    } else if (e === 'o') {
+      const playerO = document.createElement('i');
+      playerO.classList.add('fa-solid', 'fa-o', 'text-7xl');
+      getField.appendChild(playerO);
+    }
+  });
 };
 
 const restart = () => {
+  // reset gameboardArr
   gameboardArr = ['', '', '', '', '', '', '', '', ''];
-  refresh();
   console.log(gameboardArr);
+  // removes inner HTML from every field
+  fields.forEach((e) => {
+    while (e.firstChild) {
+      e.removeChild(e.firstChild);
+    }
+  });
 };
 
-const restartBtn = document.querySelector('#restart');
-restartBtn.onclick = () => restart();
-
-let currentPlayer = 'x';
-
-const playGame = () => {
-  const gameboard = document.querySelector('.gameboard');
+const gameController = () => {
   gameboard.addEventListener('click', (e) => {
-    const fieldIndex = e.target.id;
-    console.log(gameboardArr[fieldIndex]);
-    console.log(gameboardArr);
-    gameboardArr[fieldIndex] = currentPlayer;
-    if (currentPlayer === 'x') {
-      currentPlayer = 'o';
-    } else if (currentPlayer === 'o') {
-      currentPlayer = 'x';
+    const fieldIndex = parseInt(e.target.id);
+    console.log(fieldIndex);
+
+    if (gameboardArr[fieldIndex] === '') {
+      gameboardArr[fieldIndex] = currentPlayer;
+      if (currentPlayer === 'x') {
+        currentPlayer = 'o';
+      } else if (currentPlayer === 'o') {
+        currentPlayer = 'x';
+      }
     }
+
+    console.log(gameboardArr);
+
+    refresh(fieldIndex);
   });
   // refresh();
 };
 
-playGame();
+gameController();
 // const checkWinner = () => {};
 
 // console.log('Modulo', 5 % 2);
