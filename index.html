@@ -15,6 +15,10 @@
       src="https://kit.fontawesome.com/159db6d9fb.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="app.js"
+      defer
+    ></script>
     <title>Tic Tac Toe</title>
   </head>
   <body class="p-0 m-0 box-border bg-slate-900">
@@ -30,43 +34,45 @@
       <!-- Gamboard -->
       <section class="gameboardContainer">
         <div
-          class="gameboard grid justify-center grid-cols-3 mt-52 w-96 h-96 border border-sky-500 text-5xl font-extrabold text-slate-400"
+          class="gameboard grid justify-center align-middle grid-cols-3 mt-52 w-96 h-96 border border-sky-500 text-8xl font-extrabold text-slate-400"
         >
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="0"
+            data-index="0"
+          >
+            <!-- <i class="fa-solid fa-x text-7xl"></i> -->
+          </div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="1"
           ></div>
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="1"
+            data-index="2"
           ></div>
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="2"
+            data-index="3"
           ></div>
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="3"
+            data-index="4"
           ></div>
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="4"
+            data-index="5"
           ></div>
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="5"
+            data-index="6"
           ></div>
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="6"
+            data-index="7"
           ></div>
           <div
             class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="7"
-          ></div>
-          <div
-            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
-            id="8"
+            data-index="8"
           ></div>
         </div>
 
@@ -102,7 +108,5 @@
         ></a>
       </footer>
     </main>
-
-    <script src="app.js"></script>
   </body>
 </html>
