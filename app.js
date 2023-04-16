@@ -1,74 +1,29 @@
 'use strict';
-// Default settings
-let currentPlayer = 'x';
-let gameboardArr = ['', '', '', '', '', '', '', '', ''];
 
-// ### DOM ELEMENTS ###
-const main = document.querySelector('main');
-const gameboardContainer = document.querySelector('.gameboardContainer');
-const gameboard = document.querySelector('.gameboard');
-const fields = document.querySelectorAll('.fields');
-const restartBtn = document.querySelector('#restart');
+const gameBoard = document.querySelector('#gameboard');
+const infoMessage = document.querySelector('#infoMessage');
+const startCells = ['', '', '', '', '', '', '', '', ''];
 
-console.log(fields);
+let playerSign = 'cross';
+infoMessage.textContent = 'Cross goes first';
 
-// ### EVENTS ###
-
-// Reset game
-restartBtn.addEventListener('click', () => {
-  gameboardArr = ['', '', '', '', '', '', '', '', ''];
-  currentPlayer = 'x';
-  console.clear();
-  console.log('reset gameboard:', gameboardArr, 'reset player:', currentPlayer);
-  removeHTML();
-});
-
-// ### FUNCTIONS ###
-
-const gameController = () => {
-  gameboard.addEventListener('click', (e) => {
-    const fieldIndex = parseInt(e.target.dataset.index);
-    const getField = e.target;
-    console.log('index:', fieldIndex);
-
-    // currentPlayer push to array
-    if (gameboardArr[fieldIndex] === '') {
-      gameboardArr[fieldIndex] = currentPlayer;
-
-      if (currentPlayer === 'x') {
-        currentPlayer = 'o';
-      } else {
-        currentPlayer = 'x';
-      }
-    }
-
-    console.log(gameboardArr);
-    console.log('currentPlayer:', currentPlayer);
-
-    let iconElement = document.createElement('i');
-    iconElement.classList.add('fa-solid', 'text-7xl');
-
-    if (gameboardArr[fieldIndex] === 'x') {
-      iconElement.classList.add('fa-x');
-    } else if (gameboardArr[fieldIndex] === 'o') {
-      iconElement.classList.add('fa-o');
-    }
-
-    getField.appendChild(iconElement);
-  });
-  // refresh();
+const playGame = (e) => {
+  const iconElement = document.createElement('div');
+  iconElement.classList.add(playerSign);
+  e.target.append(iconElement);
+  playerSign = playerSign === 'cross' ? 'circle' : 'cross';
+  infoMessage.textContent = `It's ${playerSign}'s turn`;
+  e.target.removeEventListener('click', playGame);
 };
 
-gameController();
-
-const removeHTML = () => {
-  fields.forEach((e) => {
-    while (e.firstChild) {
-      e.removeChild(e.firstChild);
-    }
+const createBoard = () => {
+  startCells.forEach((_cells, index) => {
+    const cellElement = document.createElement('div');
+    cellElement.classList.add('square');
+    cellElement.id = index;
+    cellElement.addEventListener('click', playGame);
+    gameBoard.append(cellElement);
   });
 };
 
-// const checkWinner = () => {};
-
-// console.log('Modulo', 5 % 2);
+createBoard();

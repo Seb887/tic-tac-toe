@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/159db6d9fb.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Tic Tac Toe</title>
+  </head>
+  <body class="p-0 m-0 box-border bg-slate-900">
+    <header
+      class="bg-slate-800 flex justify-center items-center h-24 border-b border-sky-500 fixed w-screen z-10"
+    >
+      <h1 class="siteTitle font-extrabold text-5xl text-sky-500">
+        TIC-TAC-TOE
+      </h1>
+    </header>
+
+    <main class="main grid justify-center h-screen text-white">
+      <!-- Gamboard -->
+      <section class="gameboardContainer">
+        <p class="message text-center h-14 mt-36 text-slate-300 text-5xl">
+          Let's play!
+        </p>
+
+        <div
+          class="gameboard grid grid-cols-3 w-96 h-96 mt-12 m-auto border border-sky-500 text-8xl font-extrabold text-slate-400"
+        >
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="0"
+          >
+            <!-- <i class="fa-solid fa-x text-7xl"></i> -->
+          </div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="1"
+          ></div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="2"
+          ></div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="3"
+          ></div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="4"
+          ></div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="5"
+          ></div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="6"
+          ></div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="7"
+          ></div>
+          <div
+            class="fields flex justify-center items-center border border-sky-500 w-32 h-32"
+            data-index="8"
+          ></div>
+        </div>
+
+        <div class="grid justify-center mt-20">
+          <button
+            class="w-32 h-14 text-2xl text-slate-400 border-2 border-sky-500 rounded-xl"
+            id="restart"
+          >
+            Restart
+          </button>
+        </div>
+      </section>
+
+      <footer
+        class="footer flex justify-center absolute bottom-0 left-0 w-full p-2 text-slate-300"
+      >
+        <p class="font-bold">
+          <span class="pr-2 font-normal">
+            Copyright ©
+            <script type="text/javascript">
+              const year = new Date();
+              document.write(year.getFullYear());
+            </script></span
+          >
+          Seb887
+        </p>
+        <a
+          class="pl-1 hover:text-sky-500"
+          href="https://github.com/seb887"
+          target="_blank"
+        >
+          <i class="fab fa-github"></i
+        ></a>
+      </footer>
+    </main>
+
+    <script
+      src="app.js"
+      defer
+    ></script>
+  </body>
+</html>
